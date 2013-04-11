@@ -5,15 +5,22 @@
 # [*servers*]
 #   List of upstream NTP servers.
 #
+# [*use_pool*]
+#   Boolean flag to control the use of an NTP pool.
+#
 # == Variables
 #
 # == Examples
 #
 #  class { 'ntp':
-#    servers => [ 'ntp0.example.com', 'ntp1.example.com' ],
+#    servers  => [ 'ntp0.example.com', 'ntp1.example.com' ],
+#    use_pool => false,
 #  }
 #
-class ntp( $servers = undef ) {
+class ntp(
+  $servers = undef,
+  $use_pool = true
+) {
   package { 'ntp':
     ensure  => installed,
   }
