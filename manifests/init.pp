@@ -18,7 +18,7 @@
 #  }
 #
 class ntp(
-  $servers = hiera('ntp::servers', undef),
+  $servers = undef,
   $use_pool = true
 ) {
   package { 'ntp':
