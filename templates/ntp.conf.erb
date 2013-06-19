@@ -20,8 +20,10 @@ filegen clockstats file clockstats type day enable
 # You do need to talk to an NTP server or two (or three).
 #server ntp.your-provider.example
 <% if @servers -%>
-<% @servers.each do |server| -%>server <%= server %><% end %>
-<% end -%> 
+<% @servers.each do |server| -%>
+server <%= server %>
+<% end -%>
+<% end -%>
 
 # pool.ntp.org maps to about 1000 low-stratum NTP servers.  Your server will
 # pick a different set every time it starts up.  Please consider joining the
