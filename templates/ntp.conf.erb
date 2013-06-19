@@ -19,16 +19,19 @@ filegen clockstats file clockstats type day enable
 
 # You do need to talk to an NTP server or two (or three).
 #server ntp.your-provider.example
-<% if @servers %><% @servers.each do |server| -%>server <%= server %>
-<% end %><% end %> 
+<% if @servers -%>
+<% @servers.each do |server| -%>server <%= server %><% end %>
+<% end -%> 
 
 # pool.ntp.org maps to about 1000 low-stratum NTP servers.  Your server will
 # pick a different set every time it starts up.  Please consider joining the
 # pool: <http://www.pool.ntp.org/join.html>
-<% if @use_pool == true %>server 0.ubuntu.pool.ntp.org
+<% if @use_pool == true -%>
+server 0.ubuntu.pool.ntp.org
 server 1.ubuntu.pool.ntp.org
 server 2.ubuntu.pool.ntp.org
-server 3.ubuntu.pool.ntp.org<% end %>
+server 3.ubuntu.pool.ntp.org
+<% end -%>
 
 # Access control configuration; see /usr/share/doc/ntp-doc/html/accopt.html for
 # details.  The web page <http://support.ntp.org/bin/view/Support/AccessRestrictions>
